@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.function.Consumer;
 
-public class ThreadTest {
+public class CreateThreadTest {
 	
 	private static  final Consumer<String> print = (String longInteger)->{
 		System.out.println(longInteger);
@@ -67,7 +67,6 @@ public class ThreadTest {
 		new Thread(futureTask).start();
 		Map<String,Object> result = futureTask.get();
 		System.out.println(result);
-		
 		
 	}
 }
