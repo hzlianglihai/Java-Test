@@ -41,6 +41,7 @@ public class ThreadCoopOnLock {
 					try {
 						//这句一定要在signal之前,否则有发生相互等待的可能,比如sinal调用发生在
 						//线程2的await调用之前;
+						//上一句解释有误，不需要在signal之前，因为有lockOne保护
 						flag = false;
 						lockConditionOne.signal();
 					} finally {
@@ -65,7 +66,7 @@ public class ThreadCoopOnLock {
 			try {
 				while (i <= 100) {
 					lockOne.lock();
-					Thread.sleep(2000);
+//					Thread.sleep(2000);
 					try {
 						while (flag) {
 							lockConditionOne.await();
