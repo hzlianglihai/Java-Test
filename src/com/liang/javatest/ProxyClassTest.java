@@ -15,7 +15,7 @@ public class ProxyClassTest {
 
 		@Override
 		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-			System.out.println("proxy : " + proxy.getClass() + method + " args : " + args);
+			System.out.println("proxy : " + proxy.getClass() + " methodName : " + method.getName() + " args : " + args);
 			Thread.sleep(1000);
 			if (args != null) {
 				for (Object arg : args) {
@@ -23,7 +23,7 @@ public class ProxyClassTest {
 				}
 			}
 			Thread.sleep(2000);
-			return method.invoke(target, args);
+			return method.invoke(proxy, args);
 		}
 
 	}

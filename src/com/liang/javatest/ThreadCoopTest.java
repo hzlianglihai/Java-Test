@@ -40,7 +40,7 @@ public class ThreadCoopTest {
 								lockOne.wait();
 								System.out.println(Thread.currentThread().getName() + "--" + i);
 							}
-							Thread.sleep(1000);
+//							Thread.sleep(1000);
 							synchronized (lockTwo) {
 								lockTwo.notify();
 							}
